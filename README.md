@@ -1,5 +1,5 @@
 # Rosalind
 Practices in Rosalind.com
 
-The Spyder folder is for Spyder IDE.
-
+PyCharm folder contains codes solving problems using PyCharm IDE.
+Counting DNA Nucleotides is a sample question.
