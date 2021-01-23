@@ -98,6 +98,23 @@ def trace(p1, p2, chess):
     return p1e, p2e
 
 
+def longestcommonsubsequence(p1, p2, chess):
+    lcs = ''
+    i = len(p2) + 1
+    j = len(p1) + 1
+    while i > 1 or j > 1:
+        if chess[0][j] == chess[i][0]:
+            lcs += chess[0][j]
+            i -= 1
+            j -= 1
+        elif i <= j:
+            j -= 1
+        elif i > j:
+            i -= 1
+    lcs = lcs[::-1]
+    return lcs
+
+
 p = openfile()
 p1 = p[0]
 p2 = p[1]
@@ -109,3 +126,5 @@ p2e = pe[1]
 print(chess[len(p2)+1][len(p1)+1])
 print(p1e)
 print(p2e)
+
+print('The longest common subsequence is:', longestcommonsubsequence(p1, p2, chess))
