@@ -134,3 +134,40 @@ my_new_car.read_odometer()
 
 #%%
 
+# User Login
+
+class User():
+    def __init__(self, f_name, l_name):
+        self.first_name = f_name
+        self.last_name = l_name
+        self.login_attempts = 0
+
+    def describe_user(self):
+        print('First name is ' + self.first_name.title() + ', last name is ' + self.last_name.title())
+
+    def greet_user(self):
+        print('Hello, ' + self.first_name.title() + '!')
+
+    def increment_login_attempts(self):
+        self.login_attempts += 1
+
+    def reset_login_attempts(self):
+        self.login_attempts = 0
+
+
+user1 = User('Lexi', 'Deng')
+user1.greet_user()
+user1.increment_login_attempts()
+
+
+#%%
+# subclass
+# we can rewrite the methods in superclass, just use the same method name to define a new one.
+
+class ElectricCar(Car):
+    def __init__(self, make, model, color, year):
+        super().__init__(make, model, color, year)
+
+
+my_tesla = ElectricCar('Tesla', 'S', 'silver', 2019)
+my_tesla.get_descriptive_name()
