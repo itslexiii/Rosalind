@@ -55,12 +55,26 @@ class Restaurant():
     def __init__(self, name, type):
         self.restaurant_name = name
         self.cuisine_type = type
+        self.number_served = 0
 
     def describe_restaurant(self):
         print('This restaurant is called ' + self.restaurant_name.title() + ', and provides ' + self.cuisine_type + ' food.')
 
     def open_restaurant(self):
         print(self.restaurant_name.title() + ' is now opening.')
+
+    def read_number_served(self):
+        print(self.restaurant_name.title() + ' is now serving ' + str(self.number_served) + ' people.')
+
+    def set_number_served(self, num):
+        if num >= 0:
+            self.number_served = num
+        else:
+            print('Error!')
+
+    def increment_number_served(self, add_num):
+        self.number_served += add_num
+
 
 
 while True:
@@ -72,10 +86,12 @@ while True:
     type = input('Cuisine type: ')
     if name == 'Q':
         break
+    num = int(input('Serving people number: '))
     restaurant = Restaurant(name, type)
     restaurant.describe_restaurant()
     restaurant.open_restaurant()
-
+    restaurant.set_number_served(num)
+    restaurant.read_number_served()
 
 #%%
 
@@ -94,13 +110,17 @@ class Car():
         return long_name
 
     def update_odometer(self, mileage):
-        if mileage >= self.odometer_reading:
+        if mileage >= self.odometer_reading:    # Forbid rolling back the odometer
             self.odometer_reading = mileage
         else:
             print("You can't roll back an odometer!")
 
     def increment_odometer(self, miles):
-        self.odometer_reading += miles
+        # Forbid rolling back the odometer
+        if miles >= 0:
+            self.odometer_reading += miles
+        else:
+            print("You can't roll back an odometer!")
 
     def read_odometer(self):
         print('This car has ' + str(self.odometer_reading) + ' miles on it.')
@@ -108,7 +128,9 @@ class Car():
 
 my_new_car = Car('Audi', 'A6', 'Black', 2018)
 my_new_car.update_odometer(200)
-my_new_car.increment_odometer(5)
+my_new_car.increment_odometer(-5)
 print(my_new_car.get_descriptive_name())
 my_new_car.read_odometer()
+
+#%%
 
