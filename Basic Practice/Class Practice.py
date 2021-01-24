@@ -197,4 +197,20 @@ my_tesla.battery.get_range()
 
 
 #%%
+# Ice-cream stand.
 
+class IceCreamStand(Restaurant):
+    def __init__(self, name, type):
+        super().__init__(name, type)        # Don't contain self here!
+        self.flavors = 'Strawberry'
+
+    def describe_flavors(self):
+        flavors = ['Strawberry', 'Blueberry', 'Vanilla', 'Chocolate', 'Passion_Fruit']
+        self.flavors = flavors
+        print('This ice-cream stand has these flavors: ')
+        print(*self.flavors)
+
+
+my_ice_cream_stand = IceCreamStand('Lily', 'Ice Cream Stand')
+my_ice_cream_stand.describe_restaurant()
+my_ice_cream_stand.describe_flavors()
