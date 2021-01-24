@@ -1,6 +1,9 @@
 # Rosalind
 Practices in Rosalind.com
 
-PyCharm folder contains codes solving problems using PyCharm IDE.
+###PyCharm
+Contains actual codes solving Rosalind problems using PyCharm IDE.
 
-Counting DNA Nucleotides is a sample question.
+###Basic_Practice
+Contains basic practice of coding.
+

@@ -94,7 +94,13 @@ class Car():
         return long_name
 
     def update_odometer(self, mileage):
-        self.odometer_reading = mileage
+        if mileage >= self.odometer_reading:
+            self.odometer_reading = mileage
+        else:
+            print("You can't roll back an odometer!")
+
+    def increment_odometer(self, miles):
+        self.odometer_reading += miles
 
     def read_odometer(self):
         print('This car has ' + str(self.odometer_reading) + ' miles on it.')
@@ -102,5 +108,7 @@ class Car():
 
 my_new_car = Car('Audi', 'A6', 'Black', 2018)
 my_new_car.update_odometer(200)
+my_new_car.increment_odometer(5)
 print(my_new_car.get_descriptive_name())
 my_new_car.read_odometer()
+
